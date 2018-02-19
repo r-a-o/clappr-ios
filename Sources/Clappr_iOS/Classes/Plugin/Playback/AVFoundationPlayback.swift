@@ -8,6 +8,7 @@ open class AVFoundationPlayback: Playback {
     fileprivate static let mimeTypes = [
         "mp4": "video/mp4",
         "m3u8": "application/x-mpegurl",
+        "movpkg": "video/movpkg"
         ]
 
     fileprivate var kvoStatusDidChangeContext = 0
@@ -121,6 +122,10 @@ open class AVFoundationPlayback: Playback {
 
         if let mimeTypeFromParameter = options[kMimeType] as? String {
             mimeType = mimeTypeFromParameter
+        }
+
+        if mimeType == "video/movpkg" {
+            return true
         }
 
         return AVURLAsset.isPlayableExtendedMIMEType(mimeType)
