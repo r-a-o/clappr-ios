@@ -10,6 +10,7 @@ public enum Event: String {
     case disableMediaControl
     case enableMediaControl
     case didComplete
+    case readyToPlay
     case willPlay
     case playing
     case willPause
